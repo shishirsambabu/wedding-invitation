@@ -1,0 +1,14 @@
+# Local tooling / editor
+.claude/
+.vscode/
+.idea/
+
+# OS cruft
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Temp / build scratch
+assets/_*.jpg
+assets/_*.png
+*.log
