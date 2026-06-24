@@ -355,7 +355,11 @@ button{ font-family:inherit; cursor:pointer; }
   margin:10px auto 4px;
   color:transparent; -webkit-text-fill-color:transparent;
   background:var(--gold-grad); -webkit-background-clip:text; background-clip:text;
-  filter:drop-shadow(0 1px 2px rgba(0,0,0,.55));
+  filter:
+    drop-shadow(0 1px 1px rgba(0,0,0,.5))
+    drop-shadow(0 0 8px rgba(243,230,200,.42))
+    drop-shadow(0 0 20px rgba(217,189,131,.5))
+    drop-shadow(0 0 40px rgba(184,146,63,.32));
 }
 .name::before{
   content:attr(data-text); position:absolute; inset:0; text-align:center;
@@ -571,6 +575,24 @@ body.revealed #dust{ opacity:.55; }
 }
 .name.glint::after{ opacity:1; }
 
+/* slow breathing golden glow — premium "living gold" */
+@media (prefers-reduced-motion:no-preference){
+  .name{ animation:nameGlow 5.5s ease-in-out infinite; }
+  .name.rev{ animation-delay:2.75s; }
+}
+@keyframes nameGlow{
+  0%,100%{ filter:
+    drop-shadow(0 1px 1px rgba(0,0,0,.5))
+    drop-shadow(0 0 7px rgba(243,230,200,.38))
+    drop-shadow(0 0 18px rgba(217,189,131,.42))
+    drop-shadow(0 0 36px rgba(184,146,63,.26)); }
+  50%{ filter:
+    drop-shadow(0 1px 1px rgba(0,0,0,.5))
+    drop-shadow(0 0 11px rgba(255,247,225,.6))
+    drop-shadow(0 0 28px rgba(217,189,131,.62))
+    drop-shadow(0 0 56px rgba(184,146,63,.42)); }
+}
+
 /* engraved antique map */
 .map-card{ display:block; aspect-ratio:1100/630; background:var(--maroon-900); }
 .map-img{ width:100%; height:100%; object-fit:cover; display:block; transition:transform 6s ease; }
@@ -781,7 +803,6 @@ body.revealed #dust{ opacity:.55; }
       <div class="contact" data-reveal="fade-up">
         <div class="host">Mr. Nazeer &amp; Mrs. Jaseela Nazeer</div>
         <div>Kallayil House, Edakkazhiyur,<br/>Chavakkad, Thrissur Dt.</div>
-        <div style="margin-top:10px;"><a href="tel:8075653165" class="tel"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.8 3.5 4 6.2c0 7.7 6.1 13.8 13.8 13.8l2.7-2.8-4-2.6-2.2 1.6a13 13 0 0 1-6.1-6.1l1.6-2.2-3-4Z"/></svg><span>8075653165</span></a></div>
       </div>
 
       <div class="blessings" data-reveal="fade-up">
